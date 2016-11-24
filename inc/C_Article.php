@@ -111,8 +111,9 @@ class C_Article extends C_Base {
 // data from POST array receiving
                 $title = htmlspecialchars($_POST['title'],ENT_QUOTES);
                 $content = htmlspecialchars($_POST['content'],ENT_QUOTES);
+                $image_path = htmlspecialchars($_POST['image_path'],ENT_QUOTES);
 // updating one record in the data base
-                M_Data::articles_edit($id_article, $title, $content);
+                M_Data::articles_edit($id_article, $title, $content, $image_path);
                 header('Location: /article/Look/'
                     . $id_article .'/'. $this->params['start']);
                 exit();
@@ -120,7 +121,9 @@ class C_Article extends C_Base {
 // form output to user
         $this->content = $this->Template('views/edit.php',
             ['title'=> $article[0]['title'],
-            'content'=> $article[0]['content']]);
+            'content'=> $article[0]['content'],
+            'image_path'=> $article[0]['image_path'],
+            ]);
     }
 //
 // article Delete 
@@ -166,8 +169,9 @@ class C_Article extends C_Base {
         if( $this->IsPOST() ) {
                 $title = htmlspecialchars($_POST['title'],ENT_QUOTES);
                 $content = htmlspecialchars($_POST['content'],ENT_QUOTES);
+                $image_path = htmlspecialchars($_POST['image_path'],ENT_QUOTES);
 // add one record to the data base
-                M_Data::articles_new($title, $content);
+                M_Data::articles_new($title, $content, $image_path);
                 header('Location: /article/Show_all');
                 exit();
             }
