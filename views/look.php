@@ -40,7 +40,7 @@ COMMENTS:
 </ul>
 <br>
 <?php if ( $first_name_h === NULL ):?>
-    <div class="alert alert-warning" role="alert"><b>To leave your comment login,please.</b></div>
+    <div class="alert alert-warning" role="alert"><b>To leave your comment login, please.</b></div>
 <?php else:?>
 <a href="/article/Comment/<?=$id?>/<?=$start?>" 
     class="btn btn-primary btn-xs" role="button">Leave your comment</a>
