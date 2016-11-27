@@ -20,25 +20,28 @@
 COMMENTS:
 <ul>
     <?php
-    if ( $comment != null )
-    foreach ( $comments as $comment):?>
+    if ( $comments != NULL )
+        foreach ( $comments as $comment):?>
 
-        <li class="comment">
-        	<u><?=$comment['login']?> .  <?=$comment['date']?></u>
-        	<br>
-            <blockquote>
-        	   <b><i><?=$comment['comment']?></i></b> 
-            </blockquote>
-            <? if ( $delete_comment ) : ?>
+            <li class="comment">
+                <u><?=$comment['login']?> .  <?=$comment['date']?></u>
                 <br>
-                <a href="/comment/Delete/<?=$id?>/<?=$comment['id_comment']?>/<?=$start?>"
-                    class="btn btn-danger btn-xs" role="button">Delete</a> 
-            <? endif ?>
-        </li>
+                <blockquote>
+                   <b><i><?=$comment['comment']?></i></b>
+                </blockquote>
+                <? if ( $delete_comment ) : ?>
+                    <br>
+                    <a href="/comment/Delete/<?=$id?>/<?=$comment['id_comment']?>/<?=$start?>"
+                        class="btn btn-danger btn-xs" role="button">Delete</a>
+                <? endif ?>
+            </li>
 
-    <?php endforeach?>
+        <?php endforeach?>
 </ul>
 <br>
+<?php if ( $first_name_h === NULL ):?>
+    <div class="alert alert-warning" role="alert"><b>To leave your comment login,please.</b></div>
+<?php endif;?>
 <a href="/article/Comment/<?=$id?>/<?=$start?>" 
     class="btn btn-primary btn-xs" role="button">Leave your comment</a>
 <br>
