@@ -76,7 +76,7 @@ class C_Article extends C_Base {
             $add_image = $mUsers->Can('ADD_IMAGE', $user['id_role']);
             $delete_comment = $mUsers->Can('DELETE_COMMENT', $user['id_role']);
         }
-            $comments = M_Data::articles_comments_get($id_article);
+        $comments = M_Data::articles_comments_get($id_article);
         $this->content = $this->Template('views/look.php',
           [
           'first_name_h'=> $this->first_name_h,
