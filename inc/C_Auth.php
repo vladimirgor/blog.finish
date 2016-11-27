@@ -80,6 +80,18 @@ class C_Auth extends C_Base
             'last_name' => $last_name, 'login' => $login]);
     }
 
+    public function Action_Logout()
+    {
+        $str = 'sid  # ' . $_SESSION['sid']
+            . ' login * ' . $_COOKIE['login'] . ' # - Action_Login;';
+        M_Data::prot_write($str);
+
+        $this->title .= '::Logout';
+        $mUsers = M_Users::Instance();
+        $mUsers->ClearSessions();
+        $mUsers->Logout();
+        header('Location: /article/Show_all');
+    }
 }
 
 
