@@ -36,9 +36,15 @@
                 <div class="col-md-1 empty signing">
                     <a class="btn btn-warning" href="/auth/Signing" role="button">Register</a>
                 </div>
+                <?php if ($first_name_h === NULL): ?>
                 <div class="col-md-1 empty login">
                     <a class="btn btn-warning" href="/auth/Login" role="button">Login</a>
                 </div>
+                <?php else : ?>
+                <div class="col-md-1 empty login">
+                    <a class="btn btn-warning" href="/auth/Logout" role="button">Logout</a>
+                </div>
+                <?php endif; ?>
             </div>
             <? if ( !$content == '' ) :?>
                 <div class="list">
