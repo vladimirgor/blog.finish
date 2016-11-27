@@ -23,11 +23,11 @@ COMMENTS:
     if ( $comments != NULL )
         foreach ( $comments as $comment):?>
 
-            <li class="comment">
-                <u><?=$comment['login']?> .  <?=$comment['date']?></u>
+            <li>
+                <span class = "comment_header"><?=$comment['login']?> .  <?=$comment['date']?></span>
                 <br>
                 <blockquote>
-                   <b><i><?=$comment['comment']?></i></b>
+                   <b><i class="comment"><?=$comment['comment']?></i></b>
                 </blockquote>
                 <? if ( $delete_comment ) : ?>
                     <br>
