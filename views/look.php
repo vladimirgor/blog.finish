@@ -20,6 +20,7 @@
 COMMENTS:
 <ul>
     <?php
+    if ( $comment != null )
     foreach ( $comments as $comment):?>
 
         <li class="comment">
