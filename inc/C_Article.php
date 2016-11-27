@@ -8,14 +8,16 @@ class C_Article extends C_Base {
     protected function Action_show_all()
     {
         $this->title .= "::Show_all";
+        $add = false;
+        $delete = false;
         $mUsers = M_Users::Instance();
         $user = $mUsers->Get();
-        if ( $user == null ) {
-                header('Location: /');
-                exit();
+        if ( $user != null ) {
+            $this->first_name_h = $user['first_name'];
+            $this->last_name_h = $user['last_name'];
+                //header('Location: /');
+                //exit();
             }
-        $this->first_name_h = $user['first_name'];
-        $this->last_name_h = $user['last_name'];
 // articles number
         $all = M_Data::articles_count_all();
 // selecting  records from the data base
@@ -36,8 +38,10 @@ class C_Article extends C_Base {
 // chunk to show on the page        
         $needChunk = M_Data::searchPage( $allPages, $this->params['start'] );
 // allowed actions to show buttons on the page
-        $add = $mUsers->Can('ADD_ARTICLE',$user['id_role']);
-        $delete = $mUsers->Can('DELETE_ARTICLE',$user['id_role']);
+        if ( $user != null  ) {
+            $add = $mUsers->Can('ADD_ARTICLE', $user['id_role']);
+            $delete = $mUsers->Can('DELETE_ARTICLE', $user['id_role']);
+        }
 // show page        
         $this->content = $this->Template('views/show_all.php',
             ['articles' => $articles,'login'=>$user['login'],
@@ -49,15 +53,17 @@ class C_Article extends C_Base {
 // article look
 //    
     protected  function Action_look (){
+        $edit=false;
+        $add_image=false;
+        $delete_comment=false;
+        $comments=false;
         $this->title .= "::Look";
         $mUsers = M_Users::Instance();
         $user = $mUsers->Get(); 
-        if ( $user == null ) {
-                header('Location: /');
-                exit();
+        if ( $user != null ) {
+            $this->first_name_h = $user['first_name'];
+            $this->last_name_h = $user['last_name'];
             }
-        $this->first_name_h = $user['first_name'];
-        $this->last_name_h = $user['last_name'];
         $id_article = $this->params['id'];
 // selecting one record from the data base
         $article = M_Data::articles_get($id_article);
@@ -65,12 +71,13 @@ class C_Article extends C_Base {
         $article[0]['views']++;
 //  change record in data base with views + 1        
         M_Data::articles_edit_views($article[0]['id_article'], $article[0]['views']);
-// article content show   
-        $edit = $mUsers->Can('EDIT_ARTICLE',$user['id_role']);
-        $add_image = $mUsers->Can('ADD_IMAGE',$user['id_role']);
-        $delete_comment = $mUsers->Can('DELETE_COMMENT',$user['id_role']);
-        $comments = M_Data::articles_comments_get($id_article); 
-
+// article content show
+        if ( $user != null ) {
+            $edit = $mUsers->Can('EDIT_ARTICLE', $user['id_role']);
+            $add_image = $mUsers->Can('ADD_IMAGE', $user['id_role']);
+            $delete_comment = $mUsers->Can('DELETE_COMMENT', $user['id_role']);
+            $comments = M_Data::articles_comments_get($id_article);
+        }
         $this->content = $this->Template('views/look.php',
           [
           'login'=> $user['login'],
