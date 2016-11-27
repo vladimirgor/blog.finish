@@ -8,8 +8,8 @@ include_once ('/config.php');
 $action = 'Action_';
 $controller = '';
 $params = M_Data::extract_params($_GET['q']);
-$params['dir'] = __DIR__;
-$action .= isset($params['a']) ? $params['a'] : 'Entrance';
+$params['dir'] = __DIR__;;
+$action .= isset($params['a']) ? $params['a'] : 'Show_all';
 if (isset($params['c']))
     $controller = $params['c'];
 
@@ -28,7 +28,7 @@ switch ($controller)
         break;
     }
     default: {
-        $c = new C_Entrance();
+        $c = new C_Article();
         break;
     }
 }

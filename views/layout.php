@@ -34,7 +34,7 @@
                     <span><?=$last_name_h?></span>
                 </div>
                 <div class="col-md-1 empty signing">
-                    <a class="btn btn-warning" href="/auth/Signing" role="button">Signing</a>
+                    <a class="btn btn-warning" href="/auth/Signing" role="button">Register</a>
                 </div>
                 <div class="col-md-1 empty login">
                     <a class="btn btn-warning" href="/auth/Login" role="button">Login</a>

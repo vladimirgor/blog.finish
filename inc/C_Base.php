@@ -12,8 +12,8 @@ abstract class C_Base extends C_Controller{
     public function Before(){
         $this->title = 'Blog';
         $this->content = 'MyContent';
-        $this->first_name_h ='';
-        $this->last_name_h ='';
+        $this->first_name_h =NULL;
+        $this->last_name_h =NULL;
        // Открытие сессии.
         session_start();    
     }
