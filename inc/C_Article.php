@@ -56,7 +56,6 @@ class C_Article extends C_Base {
         $edit=false;
         $add_image=false;
         $delete_comment=false;
-        $comments=false;
         $this->title .= "::Look";
         $mUsers = M_Users::Instance();
         $user = $mUsers->Get(); 
@@ -76,8 +75,8 @@ class C_Article extends C_Base {
             $edit = $mUsers->Can('EDIT_ARTICLE', $user['id_role']);
             $add_image = $mUsers->Can('ADD_IMAGE', $user['id_role']);
             $delete_comment = $mUsers->Can('DELETE_COMMENT', $user['id_role']);
-            $comments = M_Data::articles_comments_get($id_article);
         }
+            $comments = M_Data::articles_comments_get($id_article);
         $this->content = $this->Template('views/look.php',
           [
           'first_name_h'=> $this->first_name_h,
