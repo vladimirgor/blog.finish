@@ -41,9 +41,10 @@ COMMENTS:
 <br>
 <?php if ( $first_name_h === NULL ):?>
     <div class="alert alert-warning" role="alert"><b>To leave your comment login,please.</b></div>
-<?php endif;?>
+<?php else:?>
 <a href="/article/Comment/<?=$id?>/<?=$start?>" 
     class="btn btn-primary btn-xs" role="button">Leave your comment</a>
+<?php endif; ?>
 <br>
 <a href="/article/Show_all/<?=$start?>" 
     class="btn btn-success btn-xs" role="button">Back to articles list</a>
