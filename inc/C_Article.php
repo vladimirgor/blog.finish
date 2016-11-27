@@ -80,7 +80,7 @@ class C_Article extends C_Base {
         }
         $this->content = $this->Template('views/look.php',
           [
-          'login'=> $user['login'],
+          'first_name_h'=> $this->first_name_h,
           'id' => $id_article,
           'title'=> $article[0]['title'],
           'image' => $article[0]['image_path'],
