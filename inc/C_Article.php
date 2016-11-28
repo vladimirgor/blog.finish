@@ -41,11 +41,12 @@ class C_Article extends C_Base {
         if ( $user != null  ) {
             $add = $mUsers->Can('ADD_ARTICLE', $user['id_role']);
             $delete = $mUsers->Can('DELETE_ARTICLE', $user['id_role']);
+            $user = $mUsers->Can('SEE_USERS', $user['id_role']);
         }
 // show page        
         $this->content = $this->Template('views/show_all.php',
             ['articles' => $articles,'login'=>$user['login'],
-             'add' => $add, 'delete' => $delete,'start' => $this->params['start'],
+             'add' => $add, 'delete' => $delete,'user'=>$user,'start' => $this->params['start'],
              'allPages' => $allPages, 'needChunk' => $needChunk, 'all' => $all
              ]);
     }
