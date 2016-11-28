@@ -16,8 +16,17 @@
             <td><?=$user['id_role']?></td>
             <td><?=$user['first_name']?></td>
             <td><?=$user['last_name']?></td>
-            <td>edit delete</td>
+            <td>
+                <? if ( $edit ) : ?>
+                    <a href="/user/Edit/<?=$user['id_user']?>" class="btn btn-primary btn-xs" role="button">Edit</a>
+                <? endif ?>
+                <? if ( $delete ) : ?>
+                    <a href="/user/Delete/<?=$user['id_user']?>" class="btn btn-danger btn-xs" role="button">Delete</a>
+                <? endif ?>
+            </td>
         </tr>
         <?php endforeach; ?>
 </table>
 <?php endif;?>
+<a href="/article/Show_all"
+   class="btn btn-success btn-xs" role="button">Back to articles list</a>
