@@ -11,7 +11,7 @@
     <input type="text"  name="login" value="<?=$user['login']?>"/>
     <br>
     Id_role:
-    <input type="number" name="id_role" value="><?=$user['id_role']?>"</>
+    <input type="text" name="id_role" value="<?=$user['id_role']?>"</>
     <br>
     First_name:
     <input type="text" name="first_name"  value="<?=$user['first_name']?>"</>
