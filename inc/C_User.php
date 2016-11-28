@@ -57,13 +57,13 @@ class C_User extends C_Base {
 
         if( $this->IsPOST() ) {
 // data from POST array receiving
-            $title = htmlspecialchars($_POST['title'],ENT_QUOTES);
-            $content = htmlspecialchars($_POST['content'],ENT_QUOTES);
-            $image_path = htmlspecialchars($_POST['image_path'],ENT_QUOTES);
+            $login = htmlspecialchars($_POST['login'],ENT_QUOTES);
+            $id_role = htmlspecialchars($_POST['id_role'],ENT_QUOTES);
+            $first_name = htmlspecialchars($_POST['first_name'],ENT_QUOTES);
+            $last_name = htmlspecialchars($_POST['last_name'],ENT_QUOTES);
 // updating one record in the data base
-            M_Data::articles_edit($id_article, $title, $content, $image_path);
-            header('Location: /article/Look/'
-                . $id_article .'/'. $this->params['start']);
+            M_Data::users_edit($id_user_record,$login, $id_role, $first_name, $last_name);
+            header('Location: /user/Show_all');
             exit();
         }
 // form output to user
