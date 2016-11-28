@@ -38,7 +38,7 @@
     <a href="/article/Add" class="btn btn-primary btn-xs" role="button">Add new article</a>
 <? endif ?>
 <? if ( $user ) : ?>
-    <a href="/user/Show_all" class="btn btn-primary btn-xs" role="button">See users</a>
+    <a href="/user/Show_all" class="btn btn-warning btn-xs" role="button">See users</a>
 <? endif ?>
 <ul>
     <?php 
