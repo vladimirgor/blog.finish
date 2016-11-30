@@ -10,7 +10,5 @@ class C_Entrance extends C_Base {
     {
         $this->title .= "::Entrance";
         $this->content = '';
-
     }
-
 }
