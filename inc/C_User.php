@@ -73,7 +73,7 @@ class C_User extends C_Base {
     }
 //
 //
-// article Delete
+// users Delete
 //
     protected  function Action_delete (){
         $this->title .= "::Delete";
@@ -90,7 +90,7 @@ class C_User extends C_Base {
         $id_user_record = $this->params['id'];
 // deleting one record from the data base
         M_Data::users_delete($id_user_record);
-// changing comments in all articles with deleted user comments in the data base
+// changing comments quantity in all articles with deleted user comments in the data base
         $comments = M_Data::users_comments_get($id_user_record);
         foreach ( $comments as $comment ){
             $article = M_Data::articles_get($comment['id_article']);
