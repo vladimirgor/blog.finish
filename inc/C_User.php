@@ -72,5 +72,35 @@ class C_User extends C_Base {
             ]);
     }
 //
+//
+// article Delete
+//
+    protected  function Action_delete (){
+        $this->title .= "::Delete";
+        $mUsers = M_Users::Instance();
+        $user = $mUsers->Get();
+// Is it allowed to user to delete users?
+        if ( $user == null || !$mUsers->Can('DELETE_USER',$user['id_role']) )
+        {
+// Access to service isn't allowed!
+            header('Location: /');
+            exit();
+        }
+// Access to service is allowed!
+        $id_user_record = $this->params['id'];
+// deleting one record from the data base
+        M_Data::users_delete($id_user_record);
+// changing comments in all articles with deleted user comments in the data base
+        $comments = M_Data::users_comments_get($id_user_record);
+        foreach ( $comments as $comment ){
+            $article = M_Data::articles_get($comment['id_article']);
+            $article[0]['comments']--;
+            M_Data::articles_edit_comments($comment['id_article'], $article[0]['comments']);
+        }
+// deleting all user comments from the data base
+        M_Data::users_comments_delete($id_user_record);
+        header('Location: /user/Show_all');
+        exit();
 
+    }
 }
