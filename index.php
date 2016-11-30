@@ -27,6 +27,10 @@ switch ($controller)
         $c = new C_Auth();
         break;
     }
+    case 'user':{
+        $c = new C_User();
+        break;
+    }
     default: {
         $c = new C_Article();
         break;
