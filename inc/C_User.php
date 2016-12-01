@@ -50,6 +50,8 @@ class C_User extends C_Base {
         }
 
 // Access to service is allowed!
+        $this->first_name_h = $user['first_name'];
+        $this->last_name_h = $user['last_name'];
         $id_user_record = htmlspecialchars($this->params['id'],ENT_QUOTES);
 
 // selecting one record from the data base for updating
