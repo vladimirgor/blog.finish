@@ -6,6 +6,7 @@
  * Time: 13:59
  */
 -->
+<h1>User edit</h1>
 <form class="form-horizontal" method="POST">
     <div class="form-group div_f">
         <label for="login" class="col-sm-2 control-label">Login:</label>
