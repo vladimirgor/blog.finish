@@ -148,6 +148,10 @@ class C_Article extends C_Base {
             }
 // Access to service is allowed!           
         $id_article = $this->params['id'];
+        $article = M_Data::articles_get($id_article);
+//image delete from image directory
+         if ( file_exists('./'.$article[0]['image_path']) )
+             if ( $article[0]['image_path'] )unlink('./'.$article[0]['image_path']);
 // deleting one record from the data base
         M_Data::articles_delete($id_article);
 // deleting all article comments from the data base

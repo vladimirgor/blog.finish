@@ -10,12 +10,13 @@
 
 <p class="clear"><p>
  <? if ( $edit ) : ?>
-                    <a href="/article/Edit/<?=$id?>/<?=$start?>"
-                        class="btn btn-primary btn-xs" role="button">Edit</a> 
+        <a href="/article/Edit/<?=$id?>/<?=$start?>"
+            class="btn btn-primary btn-xs" role="button">Edit</a>
     <? endif ?>
-<? if ( $add_image ) : ?>
-                    <a href="/article/Image/<?=$id?>/<?=$start?>"
-                        class="btn btn-primary btn-xs" role="button" >Add_image</a> 
+<? if ( $add_image )
+    if ($image == NULL ): ?>
+        <a href="/article/Image/<?=$id?>/<?=$start?>"
+            class="btn btn-primary btn-xs" role="button" >Add_image</a>
     <? endif ?><br>                  
 COMMENTS:
 <ul>

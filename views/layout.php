@@ -38,11 +38,11 @@
                 </div>
                 <?php if ($first_name_h === NULL): ?>
                 <div class="col-md-1 empty login">
-                    <a class="btn btn-warning" href="/auth/Login" role="button">Login</a>
+                    <a class="btn btn-warning" href="/auth/Login" role="button">Log in</a>
                 </div>
                 <?php else : ?>
                 <div class="col-md-1 empty login">
-                    <a class="btn btn-warning" href="/auth/Logout" role="button">Logout</a>
+                    <a class="btn btn-warning" href="/auth/Logout" role="button">Log out</a>
                 </div>
                 <?php endif; ?>
             </div>
