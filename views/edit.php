@@ -11,20 +11,20 @@
     </div>
     <div class="form-group">
         <label for="content" class="col-sm-2 control-label">Content</label>
-        <div class="col-sm-10 div_f">
+        <div class="col-sm-10">
             <textarea required name="content" class="form-control"rows="5"
                    id="content" ><?=$content?></textarea>
         </div>
     </div>
     <div class="form-group">
         <label for="image_path" class="col-sm-2 control-label">Image path</label>
-        <div class="col-sm-10 div_f">
+        <div class="col-sm-10">
             <input type="text"  name="image_path" class="form-control"
                    id="image_path" value ="<?=$image_path?>" />
         </div>
     </div>
     <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10 div_f">
+        <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-primary">Save</button>
         </div>
     </div>
